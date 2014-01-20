@@ -16,7 +16,8 @@ otp.namespace("otp.layers");
 
 var StopIcon20 = L.Icon.extend({
     options: {
-        iconUrl: resourcePath + 'images/stop20.png',
+        //iconUrl: resourcePath + 'images/stop20.png',
+	iconUrl: resourcePath + 'images/stop_ger.png',
         shadowUrl: null,
         iconSize: new L.Point(20, 20),
         iconAnchor: new L.Point(10, 10),
@@ -67,9 +68,10 @@ otp.layers.StopsLayer =
             stop.lon = stop.lon || stop.stopLon;
 
             // temporary TriMet specific code
-            if(stop.stopUrl.indexOf("http://trimet.org") === 0) {
-                stop.titleLink = 'http://www.trimet.org/go/cgi-bin/cstops.pl?action=entry&resptype=U&lang=en&noCat=Landmark&Loc=' + stop.id.id;
-            }
+	   // 16.01.14: Commented out to enable stops layer
+           // if(stop.stopUrl.indexOf("http://trimet.org") === 0) {
+           //     stop.titleLink = 'http://www.trimet.org/go/cgi-bin/cstops.pl?action=entry&resptype=U&lang=en&noCat=Landmark&Loc=' + stop.id.id;
+           // }
             //console.log(stop);
             
             var icon = new StopIcon20();
