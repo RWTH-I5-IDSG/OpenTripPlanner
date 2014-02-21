@@ -24,6 +24,24 @@
     </div>
 </script>
 
+<script id="otp-bikeSharingLayer-popup" type="text/html">
+	<div>
+		<div style="font-weight: bold; font-size: 16px">
+			{{name}}	
+		</div>
+
+		<!-- <div style="margin-top: 6px;"><b>Plan Trip</b>: [ <a href="#" class="planFromLink">From Stop</a> | <a href="#" class="planToLink">To Stop</a> ]</div>
+		-->
+
+		<div style="font-size: 13px">
+			Available Bikes: {{bikesAvailable}}
+		</div>
+		<div style="font-size: 13px">
+			Free Spaces: {{spacesAvailable}}
+		</div>
+	</div>
+</script>
+
 <script id="otp-stopsLayer-popupRoute" type="text/html">
     <li style="margin: 0px;">
         {{#routeShortName}}

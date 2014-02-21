@@ -407,8 +407,8 @@ otp.widgets.tripoptions.ModeSelector =
                      "WALK" : 'Walk Only',
                      "TRANSIT,BICYCLE" : "Bicycle &amp; Transit",
                      "CAR" : 'Drive Only',
-		     "BICYCLE,WALK": "Walking &amp; Rented Bicycle",
-		     "TRANSIT,BICYCLE,WALK": "Transit &amp; Rented Bicycle"
+                     "BICYCLE,WALK": "Walking &amp; Rented Bicycle",
+                     "TRANSIT,BICYCLE,WALK": "Transit &amp; Rented Bicycle"
                    },
     
     optionLookup : null,

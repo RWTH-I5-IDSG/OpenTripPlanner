@@ -197,6 +197,10 @@ otp.modules.bikeshare.BikeShareModule =
         var start_and_end_stations = [];
         var distance = otp.modules.bikeshare.Utils.distance;
         
+        console.log("Processing Stations!");
+        
+        console.log("Number of stations:" + this.stations.count);
+        
         this.stations.each(function(station) {
             var stationData = station.toJSON();
             
@@ -227,6 +231,11 @@ otp.modules.bikeshare.BikeShareModule =
                 this.setStationMarker(station, "BIKE STATION", icon);
             }
         }, this);
+        
+        // ajkfkl
+        icon = this.icons.getSmall("startBikeIcon");
+        this.addStationMarker(start, "BIKE STATION", icon);
+        this.addStationMarker(end, "BIKE STATION", icon);
         
         return start_and_end_stations;
     },
@@ -265,7 +274,7 @@ otp.modules.bikeshare.BikeShareModule =
             marker;
         icon = icon || this.icons.getSmall(stationData);
         
-        //console.log(station);
+        console.log("adding marker for" + station);
         marker = new L.Marker(new L.LatLng(stationData.y, stationData.x), {icon: icon});
         this.markers[station.id] = marker;
         this.stationsLayer.addLayer(marker);

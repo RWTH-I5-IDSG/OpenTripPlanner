@@ -78,7 +78,10 @@ otp.modules.multimodal.MultimodalPlannerModule =
         this.optionsWidget.applyQueryParams(this.defaultQueryParams);
         
         // add stops layer
+        //this.test = new otp.layers.TestLayer(this);
         this.stopsLayer = new otp.layers.StopsLayer(this);
+        this.bikeLayer = new otp.layers.BikeSharingLayer(this);
+        
     },
     
     routesLoaded : function() {

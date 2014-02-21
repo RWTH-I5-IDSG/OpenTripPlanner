@@ -43,7 +43,7 @@ otp.config = {
             attribution : 'Data, imagery and map information provided by <a href="http://open.mapquest.com" target="_blank">MapQuest</a>, <a href="http://www.openstreetmap.org/" target="_blank">OpenStreetMap</a> and contributors.'
         },           
     ],
-    
+       
 
     /**
      * Map start location and zoom settings: by default, the client uses the

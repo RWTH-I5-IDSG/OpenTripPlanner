@@ -28,6 +28,8 @@ otp.core.Webapp = otp.Class({
 
     geocoders : [ ],
     
+    bikeSharing : null,
+    
     transitIndex : null,
     
     urlParams : null,
@@ -112,6 +114,7 @@ otp.core.Webapp = otp.Class({
         // create the Webapp-owned objects
         
         this.map = new otp.core.Map(this);        
+        this.bikeSharing = new otp.core.BikeSharing(this);
         this.transitIndex = new otp.core.TransitIndex(this);
         this.widgetManager = new otp.widgets.WidgetManager();
         

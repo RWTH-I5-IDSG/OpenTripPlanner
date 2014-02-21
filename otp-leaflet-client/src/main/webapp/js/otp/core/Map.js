@@ -31,9 +31,6 @@ otp.core.Map = otp.Class({
         var this_ = this;
         this.webapp = webapp;
         
-        
-                
-        //var baseLayers = {};
         var defaultBaseLayer = null;
         
         for(var i=0; i<otp.config.baseLayers.length; i++) { //otp.config.baseLayers.length-1; i >= 0; i--) {
@@ -53,6 +50,7 @@ otp.core.Map = otp.Class({
             }
         }
         
+        
 
         var mapProps = { 
             layers  : [ defaultBaseLayer ],
@@ -65,7 +63,9 @@ otp.core.Map = otp.Class({
 
         this.lmap = new L.Map('map', mapProps);
 
-        L.control.layers(this.baseLayers).addTo(this.lmap);
+        // moved to module loading
+        //this.layerControl = L.control.layers(this.baseLayers); 
+        //this.layerControl.addTo(this.lmap);
         L.control.zoom({ position : 'topright' }).addTo(this.lmap);
         //this.lmap.addControl(new L.Control.Zoom({ position : 'topright' }));
         
@@ -138,10 +138,16 @@ otp.core.Map = otp.Class({
                 //this.layerControl.removeLayer(layer);
             }
         }
-
+        
+        //L.control.layers(newModule.mapLayers).addTo(this.lmap);
+        //this.layerControl = L.control.layers(this.layerControl.layers, newModule.maplayers).addTo(this.lmap);
+        
         // show module-specific layers for "new" module
         for(var layerName in newModule.mapLayers) {
             var layer = newModule.mapLayers[layerName];
+            
+            //this.layerControl.addLayer();
+            
             this.lmap.addLayer(layer);
             var this_ = this;
         }
@@ -156,6 +162,10 @@ otp.core.Map = otp.Class({
                     this.lmap.removeLayer(baseLayer);
             }
         }
+        
+        this.layerControl = L.control.layers(this.baseLayers, newModule.mapLayers); 
+        this.layerControl.addTo(this.lmap);
+        //L.control.zoom({ position : 'topright' }).addTo(this.lmap);
         
         // refresh the map context menu
         this.contextMenu.clearModuleItems();
